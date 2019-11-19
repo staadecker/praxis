@@ -1,9 +1,26 @@
-const binsObject = document.getElementById("bins");
+const binsImage = document.getElementById("bins");
 
-binsObject.addEventListener("load", function () {
-    const coffee = binsObject.contentDocument.getElementById("Coffee_Slot");
+binsImage.addEventListener("load", init);
 
-    coffee.addEventListener("click", function () {
-        alert("Coffee")
-    });
-});
+function init() {
+    const binContent = binsImage.contentDocument;
+    binContent.getElementById("Coffee_Slot").addEventListener("click", () =>
+        onCategoryClick("coffee")
+    );
+
+    binContent.getElementById("Garbage_Slot").addEventListener("click", () =>
+        onCategoryClick("garbage")
+    );
+
+    binContent.getElementById("Paper_Slot").addEventListener("click", () =>
+        onCategoryClick("paper")
+    );
+
+    binContent.getElementById("Container_Slot").addEventListener("click", () =>
+        onCategoryClick("container")
+    );
+}
+
+function onCategoryClick(categoryName) {
+    alert(categoryName)
+}
