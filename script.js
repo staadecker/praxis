@@ -24,8 +24,6 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         console.log("Signed in");
         user_uuid = user.uid;
-    } else {
-        alert("User is signed out. Try reloading page.")
     }
 });
 
@@ -78,9 +76,9 @@ function displayItem(filename) {
 }
 
 function submitData() {
-    const output_string = experiment_data.join("\n");
+    const output_string = "Test Sample " + Date.now() + "\n" + experiment_data.join("\n");
     console.log(output_string);
-    storageRef.child('/user/'+user_uuid + '/results.csv').putString(output_string).then(function (snapshot) {
-        console.log("Uploaded!")
+    storageRef.child('/user/'+user_uuid + '/results.csv').putString(output_string).then(function () {
+        alert("Thank you! The results have been submitted.")
     })
 }
