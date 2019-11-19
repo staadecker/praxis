@@ -7,6 +7,34 @@
 <body>
 
 <object data="basic_bin.svg" id="bins"></object>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-storage.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyDDO18oBZV-ZmiWREe_VOSW0G9C8kmJ3Zw",
+        authDomain: "praxis-i-research.firebaseapp.com",
+        databaseURL: "https://praxis-i-research.firebaseio.com",
+        projectId: "praxis-i-research",
+        storageBucket: "praxis-i-research.appspot.com",
+        messagingSenderId: "234764346594",
+        appId: "1:234764346594:web:7928ae834f6fa5a5a52abb",
+        measurementId: "G-04TTYDTKXB"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+</script>
+
+
 <script src="script.js"></script>
 
 </body>

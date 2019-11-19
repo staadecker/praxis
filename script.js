@@ -11,7 +11,26 @@ let current_image_name = null;
 let item_displayed = false;
 let experiment_data = []; // delay to dispose garbage; item displayed; category disposed
 let displayed_time = null;
+let user_uuid = null;
 
+firebase.auth().signInAnonymously().catch(function (error) {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(errorCode.toString() + " " + errorMessage)
+});
+
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        console.log("Signed in");
+        user_uuid = user.uid;
+    } else {
+        alert("User is signed out. Try reloading page.")
+    }
+});
+
+// Create a root reference
+const storageRef = firebase.storage().ref();
 
 binsImage.addEventListener("load", init);
 
@@ -59,5 +78,9 @@ function displayItem(filename) {
 }
 
 function submitData() {
-    console.log(experiment_data.join("\n"));
+    const output_string = experiment_data.join("\n");
+    console.log(output_string);
+    storageRef.child('/user/'+user_uuid + '/results.csv').putString(output_string).then(function (snapshot) {
+        console.log("Uploaded!")
+    })
 }
