@@ -157,6 +157,7 @@ const game = new Game();
 const start_button = document.querySelector('#start_button');
 const case_dropdown = document.getElementById("case_dropdown");
 const html_item_image = document.getElementById("item");
+const bins = document.getElementById("bins");
 
 function init() {
     // Access welcome dialog
@@ -173,21 +174,26 @@ function init() {
         start_button.classList.add('running', "mdl-button--disabled");
         type_of_case = case_dropdown.options[case_dropdown.selectedIndex].value;
 
+        bins.addEventListener("load", () => {
+            game.prepare();
+            current_dialog.close();
+        });
+
+        load_picture(type_of_case);
+
         await firebase_connection.sign_in();
 
-        // Keep checking if 'bins' exists. When it does prepare the game and then close the dialog.
-        let interval_timer = setInterval(function () {
-            if (document.getElementById("bins")) {
-                clearInterval(interval_timer);
-                game.prepare();
-                current_dialog.close();
-            }
-        }, 100);
+        // // Keep checking if 'bins' exists. When it does prepare the game and then close the dialog.
+        // let interval_timer = setInterval(function () {
+        //     if (bins.contentDocument.getElementById("Coffee_Slot")) { //Wait for SVG to load
+        //         clearInterval(interval_timer);
+        //         game.prepare();
+        //         current_dialog.close();
+        //     }
+        // }, 100);
     };
 
     current_dialog.showModal();
-
-
 }
 
 function dropdown_changed() {
@@ -196,6 +202,21 @@ function dropdown_changed() {
     } else {
         start_button.classList.remove("mdl-button--disabled")
     }
+}
+
+function load_picture(case_choice){
+    let filename;
+    switch (case_choice) {
+        case "control":
+        case "delay":
+            filename = "control_bin.svg";
+            break;
+        case "labels":
+            filename = "basic_bin.svg";
+            break;
+    }
+
+    bins.setAttribute("data", "res/" + filename);
 }
 
 init();
