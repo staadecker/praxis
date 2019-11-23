@@ -125,7 +125,8 @@ class Game {
                 current_dialog = Helper.display_dialog("#end_dialog");
 
                 // Add header row
-                const output_string = "Test Sample " + Date.now() + "\n" + this._experiment_data.join("\n");
+                this._experiment_data.unshift([Date.now(), type_of_case].join(","));
+                const output_string = this._experiment_data.join("\n");
                 firebase_connection.submitData(output_string);
             }
         }
@@ -148,6 +149,7 @@ const IMAGES_DIRECTORY = "res/items/";
 const SIGN_OUT = true; //Whether the anonymous user should be signed out of firebase
 
 let current_dialog;
+let type_of_case;
 
 const firebase_connection = new Firebase();
 const game = new Game();
@@ -169,6 +171,7 @@ function init() {
     start_button.onclick = async function () {
         // Disable button and show that it's loading;
         start_button.classList.add('running', "mdl-button--disabled");
+        type_of_case = case_dropdown.options[case_dropdown.selectedIndex].value;
 
         await firebase_connection.sign_in();
 
