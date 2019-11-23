@@ -3,7 +3,7 @@ const PAPER = "paper";
 const CONTAINER = "container";
 const GARBAGE = "garbage";
 const IMAGE_FILE_PATH = "res/items/";
-const SIGNOUT = false;
+const SIGN_OUT = true;
 
 let current_dialog;
 
@@ -69,7 +69,7 @@ class Firebase {
             },
             function () {
                 console.log("Uploaded successfully");
-                if (SIGNOUT) {
+                if (SIGN_OUT) {
                     firebase.auth().signOut();
                     console.log("Signed out")
                 }
