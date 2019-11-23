@@ -83,13 +83,11 @@ class Game {
     _current_image_name;
     _experiment_data = []; // item format: delay to dispose garbage, item displayed, category disposed
     _displayed_timestamp;
-    _html_item_image;
 
     prepare() {
         const binContent = document.getElementById("bins").contentDocument;
 
-        this._html_item_image = document.getElementById("item");
-        this._html_item_image.src = IMAGES_DIRECTORY + IMAGES[IMAGES.length - 1]; // Prepare first image. Hidden
+        html_item_image.src = IMAGES_DIRECTORY + IMAGES[IMAGES.length - 1]; // Prepare first image. Hidden
 
         // Ids are defined in the svg bin image.
         binContent.getElementById("Coffee_Slot").addEventListener("click", () => this.onCategoryClick(COFFEE));
@@ -104,8 +102,8 @@ class Game {
 
     displayNextItem() {
         const filename = IMAGES.pop();
-        this._html_item_image.src = IMAGES_DIRECTORY + filename;
-        this._html_item_image.style.visibility = 'visible';
+        html_item_image.src = IMAGES_DIRECTORY + filename;
+        html_item_image.style.visibility = 'visible';
         this._displayed_timestamp = Date.now();
         this._current_image_name = filename;
     }
@@ -135,7 +133,7 @@ class Game {
 
     removeItemFromDisplay() {
         this._current_image_name = null;
-        this._html_item_image.style.visibility = 'hidden';
+        html_item_image.style.visibility = 'hidden';
     }
 }
 
@@ -154,13 +152,18 @@ let current_dialog;
 const firebase_connection = new Firebase();
 const game = new Game();
 
+const start_button = document.querySelector('#start_button');
+const case_dropdown = document.getElementById("case_dropdown");
+const html_item_image = document.getElementById("item");
+
 function init() {
     // Access welcome dialog
     current_dialog = document.querySelector('#start_dialog');
-    const start_button = document.querySelector('#start_button');
+
     dialogPolyfill.registerDialog(current_dialog);
 
     current_dialog.addEventListener('close', () => game.start());
+    case_dropdown.addEventListener('change', () => dropdown_changed());
 
     // Define on click of start
     start_button.onclick = async function () {
@@ -180,6 +183,16 @@ function init() {
     };
 
     current_dialog.showModal();
+
+
+}
+
+function dropdown_changed() {
+    if (case_dropdown.options[case_dropdown.selectedIndex].value === "none") {
+        start_button.classList.add("mdl-button--disabled")
+    } else {
+        start_button.classList.remove("mdl-button--disabled")
+    }
 }
 
 init();

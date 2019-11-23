@@ -3,14 +3,13 @@
     padding: 5vmax;
 }
 
-#bins {
+.page_content_item {
     display: block;
     margin: auto;
+    text-align: center;
 }
 
 #item {
-    display: block;
-    margin: auto;
     padding: 0.5vmax;
 }
 
@@ -33,7 +32,7 @@ dialog {
     font-size: large;
 }
 
-p {
+p, select{
     font-size: large;
 }
 

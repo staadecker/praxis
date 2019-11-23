@@ -23,20 +23,33 @@
 <body>
 
 <div id="page_content">
-    <object data="res/control_bin.svg" id="bins"></object>
-    <img style="visibility: hidden" alt="Item to be disposed" id="item"/>
+    <object data="res/control_bin.svg" id="bins" class="page_content_item"></object>
+    <img style="visibility: hidden" alt="Item to be disposed" id="item" class="page_content_item"/>
+    <h3 class="page_content_item" style="margin: 1em">Press the correct bin opening.</h3>
 </div>
 
 <dialog id="start_dialog">
     <h2>Welcome to the Bin Game</h2>
     <p>Items of garbage will be displayed. Select the correct bin by pressing or tapping the correct opening.<br>
-        Go as FAST as possible.
+        Go as FAST as possible.<br>
     </p>
-    <!-- Raised button with ripple -->
-    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect ld-ext-right" id="start_button">
-        Start
-        <div class="ld ld-ring ld-spin" style="width:1em;height:1em;"></div>
-    </button>
+
+    <label>
+        <select onchange="dropdown_changed()" id="case_dropdown">
+            <option value="none">--Please select a case based on instructions--</option>
+            <option value="case_1">Case 1</option>
+            <option value="case_2">Case 2</option>
+            <option value="case_3">Case 3</option>
+        </select>
+    </label>
+
+    <div style="margin: 1em">
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect ld-ext-right mdl-button--disabled"
+                id="start_button">
+            Start
+            <div class="ld ld-ring ld-spin" style="width:1em;height:1em;"></div>
+        </button>
+    </div>
 </dialog>
 
 <dialog id="end_dialog">
