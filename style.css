@@ -1,5 +1,6 @@
 #page_content {
     margin: auto;
+    padding: 5vmax;
 }
 
 #bins {
@@ -10,6 +11,7 @@
 #item {
     display: block;
     margin: auto;
+    padding: 0.5vmax;
 }
 
 dialog::backdrop {
@@ -37,4 +39,5 @@ p {
 
 body {
     font-family: 'Open Sans', sans-serif;
+    background: whitesmoke;
 }

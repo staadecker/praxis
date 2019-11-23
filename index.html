@@ -23,7 +23,10 @@
     <p>Items of garbage will be displayed. Select the correct bin by pressing or tapping the correct opening.<br>
     Go as FAST as possible.
     </p>
-    <button id="start_button">Start</button>
+    <!-- Raised button with ripple -->
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="start_button">
+        Start
+    </button>
 </dialog>
 
 <dialog id="end_dialog">
@@ -34,6 +37,7 @@
 
 <dialog id="thank_you">
     <h2>Thank you!</h2>
+    <p>Results have been uploaded. You may now close this tab.</p>
 </dialog>
 
 <script src="dist/dialog-polyfill.js"></script>

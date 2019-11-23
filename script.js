@@ -49,7 +49,6 @@ class Firebase {
         }
 
         this._user_uuid = userCredentials.user.uid;
-        console.log("Signed in as " + this._user_uuid);
     }
 
     submitData(data_string) {
@@ -133,7 +132,6 @@ class Game {
         this._html_item_to_dispose.style.visibility = 'visible';
         this._displayed_time = Date.now();
         this._current_image_name = filename;
-        console.log("Displaying: " + filename);
     }
 }
 
@@ -144,7 +142,6 @@ const game = new Game();
 function init() {
     current_dialog = document.querySelector('#start_dialog');
     dialogPolyfill.registerDialog(current_dialog);
-    current_dialog.showModal();
 
     document.querySelector('#start_button').onclick = function () {
         // const value = document.querySelector('#return_value').value;
@@ -161,6 +158,14 @@ function init() {
             }
         }, 100);
     });
+
+    current_dialog.showModal();
+    prepare_first_image();
+}
+
+function prepare_first_image() {
+    this._html_item_to_dispose.style.visibility = 'hidden';
+    this._html_item_to_dispose.src = IMAGE_FILE_PATH + IMAGES[IMAGES.length - 1];
 }
 
 function show_end_dialog() {
