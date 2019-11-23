@@ -4,14 +4,12 @@
 
 #bins {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
 }
 
 #item {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
 }
 
 dialog::backdrop {
@@ -21,4 +19,22 @@ dialog::backdrop {
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+dialog {
+    border-radius: 6px;
+}
+
+#start_button {
+    display: block;
+    margin: auto;
+    font-size: large;
+}
+
+p {
+    font-size: large;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
 }

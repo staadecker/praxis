@@ -5,6 +5,11 @@
     <title>Bin Research</title>
     <link rel="stylesheet" href="style.css"/>
     <link rel="stylesheet" type="text/css" href="dist/dialog-polyfill.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 </head>
 <body>
 
@@ -13,12 +18,22 @@
     <img style="visibility: hidden" alt="Item to be disposed" id="item"/>
 </div>
 
-<dialog>
-    <h1>Welcome to the Bin Game</h1>
+<dialog id="start_dialog">
+    <h2>Welcome to the Bin Game</h2>
     <p>Items of garbage will be displayed. Select the correct bin by pressing or tapping the correct opening.<br>
     Go as FAST as possible.
     </p>
-    <button id="start">Start</button>
+    <button id="start_button">Start</button>
+</dialog>
+
+<dialog id="end_dialog">
+    <h2>One second...</h2>
+    <p>We are uploading your results.</p>
+    <div id="upload_progress" class="mdl-progress mdl-js-progress"></div>
+</dialog>
+
+<dialog id="thank_you">
+    <h2>Thank you!</h2>
 </dialog>
 
 <script src="dist/dialog-polyfill.js"></script>

@@ -5,8 +5,7 @@ const GARBAGE = "garbage";
 const IMAGE_FILE_PATH = "res/items/";
 const SIGNOUT = false;
 
-// import {MDCDialog} from '@material/dialog';
-// const dialog = new MDCDialog(document.querySelector('.mdc-dialog'));
+let current_dialog;
 
 function shuffle(array) {
     // From: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
@@ -62,21 +61,20 @@ class Firebase {
         upload_task.on(firebase.storage.TaskEvent.STATE_CHANGED,
             function (snapshot) {
                 const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                update_end_dialog_progress(progress);
                 console.log('Upload is ' + progress + '% done');
             },
             function (error) {
                 console.log(error.toString())
             },
             function () {
-                // Upload completed successfully, now we can get the download URL
-                upload_task.snapshot.ref.getDownloadURL().then(function (downloadURL) {
-                    console.log('File available at', downloadURL);
-                });
-
+                console.log("Uploaded successfully");
                 if (SIGNOUT) {
                     firebase.auth().signOut();
                     console.log("Signed out")
                 }
+
+                display_thank_you();
             }
         )
     }
@@ -114,6 +112,7 @@ class Game {
             this._items_disposed++;
 
             if (this._items_disposed === NUMBER_OF_ITEMS) {
+                show_end_dialog();
                 const output_string = "Test Sample " + Date.now() + "\n" + this._experiment_data.join("\n");
                 firebase_connection.submitData(output_string);
             } else {
@@ -137,22 +136,22 @@ class Game {
         console.log("Displaying: " + filename);
     }
 }
+
 const firebase_connection = new Firebase();
 
 const game = new Game();
 
 function init() {
-    const dialog = document.querySelector('dialog');
-    dialogPolyfill.registerDialog(dialog);
-    // Now dialog acts like a native <dialog>.
-    dialog.showModal();
+    current_dialog = document.querySelector('#start_dialog');
+    dialogPolyfill.registerDialog(current_dialog);
+    current_dialog.showModal();
 
-    document.querySelector('#start').onclick = function() {
+    document.querySelector('#start_button').onclick = function () {
         // const value = document.querySelector('#return_value').value;
-        dialog.close();
+        current_dialog.close();
     };
 
-    document.querySelector('dialog').addEventListener('close', async function() {
+    document.querySelector('#start_dialog').addEventListener('close', async function () {
         await firebase_connection.sign_in();
 
         let interval_timer = setInterval(function () {
@@ -162,6 +161,24 @@ function init() {
             }
         }, 100);
     });
+}
+
+function show_end_dialog() {
+    current_dialog = document.querySelector('#end_dialog');
+    dialogPolyfill.registerDialog(current_dialog);
+    current_dialog.showModal();
+}
+
+function update_end_dialog_progress(percent) {
+    document.querySelector("#upload_progress").MaterialProgress.setProgress(percent)
+}
+
+function display_thank_you() {
+    current_dialog.close();
+
+    current_dialog = document.querySelector("#thank_you");
+    dialogPolyfill.registerDialog(current_dialog);
+    current_dialog.showModal();
 }
 
 init();
