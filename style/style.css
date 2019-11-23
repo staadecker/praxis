@@ -32,7 +32,7 @@ dialog {
     font-size: large;
 }
 
-p, select{
+.paragraph, select{
     font-size: large;
 }
 
