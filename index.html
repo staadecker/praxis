@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Bin Research</title>
-    <link rel="stylesheet" href="style.css"/>
-    <link rel="stylesheet" type="text/css" href="dist/dialog-polyfill.css" />
+    <link rel="stylesheet" href="style/style.css"/>
+    <link rel="stylesheet" type="text/css" href="style/dialog-polyfill.css" />
+    <link rel="stylesheet" type="text/css" href="style/ldbtn.min.css" />
+    <link rel="stylesheet" type="text/css" href="style/loading.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -24,8 +26,9 @@
     Go as FAST as possible.
     </p>
     <!-- Raised button with ripple -->
-    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="start_button">
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect ld-ext-right" id="start_button">
         Start
+        <div class="ld ld-ring ld-spin" style="width:1em;height:1em;"></div>
     </button>
 </dialog>
 
@@ -40,7 +43,7 @@
     <p>Results have been uploaded. You may now close this tab.</p>
 </dialog>
 
-<script src="dist/dialog-polyfill.js"></script>
+<script src="lib/dialog-polyfill.js"></script>
 
 <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>

@@ -86,24 +86,30 @@ class Game {
     _displayed_time;
     _html_item_to_dispose;
 
-    start() {
+    prepare(){
         const binContent = document.getElementById("bins").contentDocument;
         this._html_item_to_dispose = document.getElementById("item");
+        this._html_item_to_dispose.src = IMAGE_FILE_PATH + IMAGES[IMAGES.length - 1]; // Prepare first image. Hidden
 
         binContent.getElementById("Coffee_Slot").addEventListener("click", () => this.onCategoryClick(COFFEE));
         binContent.getElementById("Garbage_Slot").addEventListener("click", () => this.onCategoryClick(GARBAGE));
         binContent.getElementById("Paper_Slot").addEventListener("click", () => this.onCategoryClick(PAPER));
         binContent.getElementById("Container_Slot").addEventListener("click", () => this.onCategoryClick(CONTAINER));
+    }
 
+    start() {
         this.nextItem();
     }
 
     nextItem() {
-        this.displayItem(IMAGES.pop());
+        const filename = IMAGES.pop();
+        this.displayItem(filename);
+        console.log("Displaying: " + filename)
     }
 
     onCategoryClick(categoryName) {
         if (this._current_image_name) {
+            console.log("Clicked on : " + categoryName);
             let current_time = Date.now();
             let item_data = [current_time - this._displayed_time, this._current_image_name, categoryName].join(",");
             this._experiment_data.push(item_data);
@@ -143,29 +149,26 @@ function init() {
     current_dialog = document.querySelector('#start_dialog');
     dialogPolyfill.registerDialog(current_dialog);
 
-    document.querySelector('#start_button').onclick = function () {
+    document.querySelector('#start_button').onclick = async function () {
         // const value = document.querySelector('#return_value').value;
-        current_dialog.close();
-    };
+        document.querySelector("#start_button").classList.add('running', "mdl-button--disabled");
 
-    document.querySelector('#start_dialog').addEventListener('close', async function () {
         await firebase_connection.sign_in();
 
         let interval_timer = setInterval(function () {
             if (document.getElementById("bins")) {
                 clearInterval(interval_timer);
-                game.start()
+                game.prepare();
+                current_dialog.close();
             }
         }, 100);
+    };
+
+    document.querySelector('#start_dialog').addEventListener('close', async function () {
+        game.start();
     });
 
     current_dialog.showModal();
-    prepare_first_image();
-}
-
-function prepare_first_image() {
-    this._html_item_to_dispose.style.visibility = 'hidden';
-    this._html_item_to_dispose.src = IMAGE_FILE_PATH + IMAGES[IMAGES.length - 1];
 }
 
 function show_end_dialog() {
