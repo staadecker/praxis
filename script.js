@@ -1,3 +1,6 @@
+// Note. I am aware this is ugly code mainly because of a lack of separation between the logic and the UI.
+// The reason for this is because it had to been written is only a couple days (similar to a hackathon).
+
 class Helper {
     static shuffle(array) {
         // From: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
@@ -51,6 +54,8 @@ class Firebase {
     }
 
     submitData(data_string) {
+        console.log("Submitting data as: " + this._user_uuid);
+
         const file_path = '/user/' + this._user_uuid + '/results.csv';
 
         const upload_task = firebase.storage().ref().child(file_path).putString(data_string);
@@ -72,7 +77,7 @@ class Firebase {
                 }
 
                 current_dialog.close();
-                current_dialog = Helper.display_dialog("#thank_you")
+                current_dialog = Helper.display_dialog("#thank_you");
             }
         )
     }
@@ -80,12 +85,29 @@ class Firebase {
 
 class Game {
     _items_disposed = 0;
-    _current_image_name;
+    current_image_name;
     _experiment_data = []; // item format: delay to dispose garbage, item displayed, category disposed
     _displayed_timestamp;
+    _add_delay = false;
+    _bin_filename;
+    DELAY = 2000;
+
+    load_bin_picture(){
+        switch (case_choice) {
+            case "control":
+            case "delay":
+                this._bin_filename = "control_bin.svg";
+                break;
+            case "labels":
+                this._bin_filename = "basic_bin.svg";
+                break;
+        }
+
+        html_bin_image.setAttribute("data", "res/" + this._bin_filename);
+    }
 
     prepare() {
-        const binContent = document.getElementById("bins").contentDocument;
+        const binContent = html_bin_image.contentDocument;
 
         html_item_image.src = IMAGES_DIRECTORY + IMAGES[IMAGES.length - 1]; // Prepare first image. Hidden
 
@@ -94,6 +116,10 @@ class Game {
         binContent.getElementById("Garbage_Slot").addEventListener("click", () => this.onCategoryClick(GARBAGE));
         binContent.getElementById("Paper_Slot").addEventListener("click", () => this.onCategoryClick(PAPER));
         binContent.getElementById("Container_Slot").addEventListener("click", () => this.onCategoryClick(CONTAINER));
+
+        if (case_choice === "delay") {
+            this._add_delay = true;
+        }
     }
 
     start() {
@@ -105,15 +131,33 @@ class Game {
         html_item_image.src = IMAGES_DIRECTORY + filename;
         html_item_image.style.visibility = 'visible';
         this._displayed_timestamp = Date.now();
-        this._current_image_name = filename;
+
+        if (this._add_delay) {
+            html_delay_progress.MaterialProgress.setProgress(0);
+            html_overlay.style.display = 'block';
+            const start_timestamp = Date.now();
+
+            const interval_timer = setInterval(function () {
+                const elapsed = Date.now() - start_timestamp;
+                if (elapsed < game.DELAY) {
+                    html_delay_progress.MaterialProgress.setProgress((elapsed / game.DELAY) * 100)
+                } else {
+                    clearTimeout(interval_timer);
+                    html_overlay.style.display = 'none';
+                    game.current_image_name = filename;
+                }
+            }, 100)
+        } else {
+            this.current_image_name = filename;
+        }
     }
 
     onCategoryClick(categoryName) {
-        if (this._current_image_name) {
+        if (this.current_image_name) {
             const current_time = Date.now();
 
             //Item data is a string (formatted as a csv file row)
-            const item_data = [current_time - this._displayed_timestamp, this._current_image_name, categoryName].join(",");
+            const item_data = [current_time - this._displayed_timestamp, this.current_image_name, categoryName].join(",");
             this._experiment_data.push(item_data);
 
             this.removeItemFromDisplay();
@@ -125,7 +169,7 @@ class Game {
                 current_dialog = Helper.display_dialog("#end_dialog");
 
                 // Add header row
-                this._experiment_data.unshift([Date.now(), type_of_case].join(","));
+                this._experiment_data.unshift([Date.now(), this._bin_filename, this._add_delay, this.DELAY].join(","));
                 const output_string = this._experiment_data.join("\n");
                 firebase_connection.submitData(output_string);
             }
@@ -133,7 +177,7 @@ class Game {
     }
 
     removeItemFromDisplay() {
-        this._current_image_name = null;
+        this.current_image_name = null;
         html_item_image.style.visibility = 'hidden';
     }
 }
@@ -149,15 +193,17 @@ const IMAGES_DIRECTORY = "res/items/";
 const SIGN_OUT = true; //Whether the anonymous user should be signed out of firebase
 
 let current_dialog;
-let type_of_case;
+let case_choice;
 
 const firebase_connection = new Firebase();
 const game = new Game();
 
-const start_button = document.querySelector('#start_button');
-const case_dropdown = document.getElementById("case_dropdown");
+const html_start_button = document.getElementById('start_button');
+const html_case_dropdown = document.getElementById("case_dropdown");
 const html_item_image = document.getElementById("item");
-const bins = document.getElementById("bins");
+const html_bin_image = document.getElementById("bins");
+const html_overlay = document.getElementById("overlay");
+const html_delay_progress = document.getElementById("delay_progress");
 
 function init() {
     // Access welcome dialog
@@ -166,57 +212,33 @@ function init() {
     dialogPolyfill.registerDialog(current_dialog);
 
     current_dialog.addEventListener('close', () => game.start());
-    case_dropdown.addEventListener('change', () => dropdown_changed());
+    html_case_dropdown.addEventListener('change', () => dropdown_changed());
+
+    html_bin_image.addEventListener("load", () => {
+        game.prepare();
+        current_dialog.close();
+    });
 
     // Define on click of start
-    start_button.onclick = async function () {
+    html_start_button.onclick = async function () {
         // Disable button and show that it's loading;
-        start_button.classList.add('running', "mdl-button--disabled");
-        type_of_case = case_dropdown.options[case_dropdown.selectedIndex].value;
-
-        bins.addEventListener("load", () => {
-            game.prepare();
-            current_dialog.close();
-        });
-
-        load_picture(type_of_case);
+        html_start_button.classList.add('running', "mdl-button--disabled");
+        case_choice = html_case_dropdown.options[html_case_dropdown.selectedIndex].value;
 
         await firebase_connection.sign_in();
 
-        // // Keep checking if 'bins' exists. When it does prepare the game and then close the dialog.
-        // let interval_timer = setInterval(function () {
-        //     if (bins.contentDocument.getElementById("Coffee_Slot")) { //Wait for SVG to load
-        //         clearInterval(interval_timer);
-        //         game.prepare();
-        //         current_dialog.close();
-        //     }
-        // }, 100);
+        game.load_bin_picture();
     };
 
     current_dialog.showModal();
 }
 
 function dropdown_changed() {
-    if (case_dropdown.options[case_dropdown.selectedIndex].value === "none") {
-        start_button.classList.add("mdl-button--disabled")
+    if (html_case_dropdown.options[html_case_dropdown.selectedIndex].value === "none") {
+        html_start_button.classList.add("mdl-button--disabled")
     } else {
-        start_button.classList.remove("mdl-button--disabled")
+        html_start_button.classList.remove("mdl-button--disabled")
     }
-}
-
-function load_picture(case_choice){
-    let filename;
-    switch (case_choice) {
-        case "control":
-        case "delay":
-            filename = "control_bin.svg";
-            break;
-        case "labels":
-            filename = "basic_bin.svg";
-            break;
-    }
-
-    bins.setAttribute("data", "res/" + filename);
 }
 
 init();
