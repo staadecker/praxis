@@ -23,14 +23,6 @@ class Helper {
 
         return array;
     }
-
-    static display_dialog(dialog_selector) {
-        const dialog = document.querySelector(dialog_selector);
-        dialogPolyfill.registerDialog(dialog);
-        dialog.showModal();
-
-        return dialog
-    }
 }
 
 class Firebase {
@@ -76,8 +68,8 @@ class Firebase {
                     firebase.auth().signOut();
                 }
 
-                current_dialog.close();
-                current_dialog = Helper.display_dialog("#thank_you");
+                $("#end_dialog").modal('hide');
+                $("#thank_you").modal('show');
             }
         )
     }
@@ -96,10 +88,13 @@ class Game {
         switch (case_choice) {
             case "control":
             case "delay":
-                this._bin_filename = "control_bin.svg";
+                this._bin_filename = "myhal_bin.svg";
                 break;
-            case "labels":
-                this._bin_filename = "basic_bin.svg";
+            case "labels_good":
+                this._bin_filename = "good_bin.svg";
+                break;
+            case "labels_bad":
+                this._bin_filename = "text_bin.svg";
                 break;
         }
 
@@ -166,7 +161,7 @@ class Game {
             if (this._items_disposed !== NUMBER_OF_ITEMS) {
                 this.displayNextItem();
             } else {
-                current_dialog = Helper.display_dialog("#end_dialog");
+                $("#end_dialog").modal('show');
 
                 // Add header row
                 this._experiment_data.unshift([Date.now(), this._bin_filename, this._add_delay, this.DELAY].join(","));
@@ -192,7 +187,6 @@ const GARBAGE = "garbage";
 const IMAGES_DIRECTORY = "res/items/";
 const SIGN_OUT = true; //Whether the anonymous user should be signed out of firebase
 
-let current_dialog;
 let case_choice;
 
 const firebase_connection = new Firebase();
@@ -207,16 +201,14 @@ const html_delay_progress = document.getElementById("delay_progress");
 
 function init() {
     // Access welcome dialog
-    current_dialog = document.querySelector('#start_dialog');
+    $('#start_dialog').modal('show');
 
-    dialogPolyfill.registerDialog(current_dialog);
-
-    current_dialog.addEventListener('close', () => game.start());
     html_case_dropdown.addEventListener('change', () => dropdown_changed());
 
     html_bin_image.addEventListener("load", () => {
         game.prepare();
-        current_dialog.close();
+        $('#start_dialog').modal('hide');
+        game.start();
     });
 
     // Define on click of start
@@ -229,8 +221,6 @@ function init() {
 
         game.load_bin_picture();
     };
-
-    current_dialog.showModal();
 }
 
 function dropdown_changed() {
