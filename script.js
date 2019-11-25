@@ -6,7 +6,7 @@ class Helper {
         // From: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
         // Which was taken from: https://github.com/Daplie/knuth-shuffle
         // Randomly elements in an array.
-        let currentIndex = array.length, temporaryValue, randomIndex;
+        var currentIndex = array.length, temporaryValue, randomIndex;
 
         // While there remain elements to shuffle...
         while (0 !== currentIndex) {
@@ -26,11 +26,13 @@ class Helper {
 }
 
 class Firebase {
-    _user_uuid;
+    constructor() {
+        this._user_uuid = null;
+    }
 
     // Create a root reference
     async sign_in() {
-        let userCredentials;
+        var userCredentials;
         try {
             userCredentials = await firebase.auth().signInAnonymously();
         } catch (error) {
@@ -76,13 +78,15 @@ class Firebase {
 }
 
 class Game {
-    _items_disposed = 0;
-    current_image_name;
-    _experiment_data = []; // item format: delay to dispose garbage, item displayed, category disposed
-    _displayed_timestamp;
-    _add_delay = false;
-    _bin_filename;
-    DELAY = 2000;
+    constructor() {
+        this._items_disposed = 0;
+        this.current_image_name = null;
+        this._experiment_data = []; // item format: delay to dispose garbage, item displayed, category disposed
+        this._displayed_timestamp = null;
+        this._add_delay = false;
+        this._bin_filename=null;
+        this.DELAY = 2000;
+    }
 
     load_bin_picture(){
         switch (case_choice) {
@@ -187,7 +191,7 @@ const GARBAGE = "garbage";
 const IMAGES_DIRECTORY = "res/items/";
 const SIGN_OUT = true; //Whether the anonymous user should be signed out of firebase
 
-let case_choice;
+var case_choice;
 
 const firebase_connection = new Firebase();
 const game = new Game();
