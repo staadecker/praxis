@@ -214,7 +214,7 @@ function init() {
     // Define on click of start
     html_start_button.onclick = async function () {
         // Disable button and show that it's loading;
-        html_start_button.classList.add('running', "mdl-button--disabled");
+        $('#start_button').prop('disabled', true);
         case_choice = html_case_dropdown.options[html_case_dropdown.selectedIndex].value;
 
         await firebase_connection.sign_in();
@@ -225,9 +225,9 @@ function init() {
 
 function dropdown_changed() {
     if (html_case_dropdown.options[html_case_dropdown.selectedIndex].value === "none") {
-        html_start_button.classList.add("mdl-button--disabled")
+        $('#start_button').prop('disabled', true);
     } else {
-        html_start_button.classList.remove("mdl-button--disabled")
+        $('#start_button').prop('disabled', false);
     }
 }
 
