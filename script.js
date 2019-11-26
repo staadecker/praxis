@@ -1,7 +1,7 @@
 // Note. I am aware this is ugly code mainly because of a lack of separation between the logic and the UI.
 // The reason for this is because it had to been written is only a couple days (similar to a hackathon).
 
-const ORDERED_IMAGES = ['apple.png', 'coffee cup.png', 'coffee lid.jpg',
+const ORDERED_IMAGES = ['apple.png', 'coffee lid.jpg',
     'coffee paper cup.jpeg', 'eggshells.jpg', 'elastic bands.jpg', 'milk.png',
     "paper.png", 'pizza box.jpg', 'snickers.png', 'tea bag.jpg'];
 
