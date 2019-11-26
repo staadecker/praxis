@@ -15,7 +15,7 @@
    version="1.1"
    id="svg4570"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
-   sodipodi:docname="myhal_bin_v3.svg">
+   sodipodi:docname="myhal_bin_v4.svg">
   <defs
      id="defs4564">
     <marker
@@ -100,7 +100,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="374.39371"
+     inkscape:cx="263.9369"
      inkscape:cy="150.54076"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -251,35 +251,35 @@
          x="171.22321"
          y="120.10714"
          style="fill:#f9f9f9;stroke-width:0.26458332">Seperately</tspan></text>
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.60000002;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none"
+       id="Coffee_Slot"
+       cx="183.97992"
+       cy="80.230652"
+       rx="20.127232"
+       ry="19.087799"
+       inkscape:label="#path1020" />
     <path
-       style="fill:#ffffff;fill-opacity:1;stroke-width:0.26723751"
-       d="m 109.99109,82.781987 v -15.40253 h 16.91444 16.91443 v 15.40253 15.402528 h -16.91443 -16.91444 z"
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.1889881"
+       d="m 102.24258,79.947165 v -5.38616 h 24.19048 24.19047 v 5.38616 5.38616 h -24.19047 -24.19048 z"
        id="Paper_Slot"
        inkscape:connector-curvature="0"
        inkscape:label="#path4592" />
     <rect
-       style="fill:#ffffff;fill-opacity:1;stroke-width:0.99192142;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none"
-       id="Garbage_Slot"
-       width="45.35714"
-       height="20.221727"
-       x="3.9687507"
-       y="70.025291"
-       inkscape:label="#rect4615" />
-    <rect
        style="fill:#ffffff;fill-opacity:1;stroke-width:0.60000002;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none"
        id="Container_Slot"
-       width="30.427082"
-       height="29.482143"
-       x="57.452381"
-       y="66.434517"
-       inkscape:label="#rect4617" />
+       width="38.931545"
+       height="32.883926"
+       x="53.861607"
+       y="62.276783"
+       inkscape:label="#rect912" />
     <rect
-       style="fill:#ffffff;fill-opacity:1;stroke-width:0.56056875;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none"
-       id="Coffee_Slot"
-       width="39.120537"
-       height="19.465773"
-       x="162.15178"
-       y="72.104164"
-       inkscape:label="#rect4619" />
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.60000002;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none"
+       id="Garbage_Slot"
+       width="29.104166"
+       height="28.159225"
+       x="12.095239"
+       y="65.111603"
+       inkscape:label="#rect914" />
   </g>
 </svg>
