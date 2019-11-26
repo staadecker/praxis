@@ -101,6 +101,8 @@ class Game {
             case "labels_good":
                 this._bin_filename = "good_bin.svg";
                 break;
+            case "slots":
+                this._bin_filename = "slot_bin.svg"
         }
 
         html_bin_image.setAttribute("data", "res/" + this._bin_filename);

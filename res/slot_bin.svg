@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210.91072mm"
+   height="91.470238mm"
+   viewBox="0 0 210.91072 91.470238"
+   version="1.1"
+   id="svg4570"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="myhal_bin_v3.svg">
+  <defs
+     id="defs4564">
+    <marker
+       inkscape:stockid="TriangleOutL"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="TriangleOutL"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path1010"
+         d="M 5.77,0.0 L -2.88,5.0 L -2.88,-5.0 L 5.77,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.8)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lend"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path871"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutL-5"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path1010-1"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="scale(0.8)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutL-5-5"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path1010-1-6"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="scale(0.8)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutL-5-5-5"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path1010-1-6-1"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="scale(0.8)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="374.39371"
+     inkscape:cy="150.54076"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata4567">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-37.708332)">
+    <rect
+       style="fill:#552200;fill-opacity:1;stroke-width:0.99723136"
+       id="rect59"
+       width="211.0997"
+       height="91.848213"
+       x="1.4210855e-14"
+       y="37.897324" />
+    <rect
+       style="fill:#ff0000;fill-opacity:1;stroke-width:0.26458332"
+       id="rect16"
+       width="0.33408689"
+       height="0.13363476"
+       x="23.98744"
+       y="43.318237" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.76111126px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="10.09139"
+       y="110.06936"
+       id="text20"><tspan
+         sodipodi:role="line"
+         id="tspan18"
+         x="10.09139"
+         y="110.06936"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111126px;line-height:2;font-family:Arial;-inkscape-font-specification:Arial;fill:#ffffff;stroke-width:0.26458332">Garbage</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.76111126px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="56.218147"
+       y="110.0425"
+       id="text26"><tspan
+         sodipodi:role="line"
+         id="tspan24"
+         x="56.218147"
+         y="110.0425"
+         style="font-size:6.3499999px;fill:#ffffff;stroke-width:0.26458332">Containers</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.05555534px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="117.17262"
+       y="109.90179"
+       id="text40"><tspan
+         sodipodi:role="line"
+         id="tspan38"
+         x="117.17262"
+         y="109.90179"
+         style="fill:#ffffff;stroke-width:0.26458332">Paper</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.05555534px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="162.52977"
+       y="109.90179"
+       id="text46"><tspan
+         sodipodi:role="line"
+         id="tspan44"
+         x="162.52977"
+         y="109.90179"
+         style="fill:#ffffff;stroke-width:0.26458332">Coffee Cups</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.05555534px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="56.507439"
+       y="50.559525"
+       id="text52"><tspan
+         sodipodi:role="line"
+         id="tspan50"
+         x="56.507439"
+         y="56.996521"
+         style="stroke-width:0.26458332" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="9.0714273"
+       y="115.76041"
+       id="text1024"><tspan
+         sodipodi:role="line"
+         id="tspan1022"
+         x="9.0714273"
+         y="115.76041"
+         style="fill:#ffffff;stroke-width:0.26458332">Sent to Landfill</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="58.397316"
+       y="114.62649"
+       id="text1028"><tspan
+         sodipodi:role="line"
+         id="tspan1026"
+         x="58.397316"
+         y="114.62649"
+         style="fill:#ffffff;stroke-width:0.26458332">For Recycling</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="113.39286"
+       y="115.57143"
+       id="text1032"><tspan
+         sodipodi:role="line"
+         id="tspan1030"
+         x="113.39286"
+         y="115.57143"
+         style="fill:#ffffff;stroke-width:0.26458332">For Recycling</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="159.50595"
+       y="115.38243"
+       id="text1036"><tspan
+         sodipodi:role="line"
+         id="tspan1034"
+         x="159.50595"
+         y="115.38243"
+         style="fill:#ffffff;stroke-width:0.26458332">Recycle Lid and Sleeve </tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#f9f9f9;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="171.22321"
+       y="120.10714"
+       id="text1040"><tspan
+         sodipodi:role="line"
+         id="tspan1038"
+         x="171.22321"
+         y="120.10714"
+         style="fill:#f9f9f9;stroke-width:0.26458332">Seperately</tspan></text>
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.26723751"
+       d="m 109.99109,82.781987 v -15.40253 h 16.91444 16.91443 v 15.40253 15.402528 h -16.91443 -16.91444 z"
+       id="Paper_Slot"
+       inkscape:connector-curvature="0"
+       inkscape:label="#path4592" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.99192142;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none"
+       id="Garbage_Slot"
+       width="45.35714"
+       height="20.221727"
+       x="3.9687507"
+       y="70.025291"
+       inkscape:label="#rect4615" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.60000002;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none"
+       id="Container_Slot"
+       width="30.427082"
+       height="29.482143"
+       x="57.452381"
+       y="66.434517"
+       inkscape:label="#rect4617" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.56056875;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none"
+       id="Coffee_Slot"
+       width="39.120537"
+       height="19.465773"
+       x="162.15178"
+       y="72.104164"
+       inkscape:label="#rect4619" />
+  </g>
+</svg>
