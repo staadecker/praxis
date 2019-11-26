@@ -101,9 +101,6 @@ class Game {
             case "labels_good":
                 this._bin_filename = "good_bin.svg";
                 break;
-            case "labels_bad":
-                this._bin_filename = "text_bin.svg";
-                break;
         }
 
         html_bin_image.setAttribute("data", "res/" + this._bin_filename);
