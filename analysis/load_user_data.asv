@@ -1,0 +1,9 @@
+function data = load_user_data(filename)
+opts = detectImportOptions(filename);
+data = UserData;
+data.data = readtable(filename, opts);
+data.timestamp = csvread(filename, 0,0, 'A1..A1');
+data.category = csvread(filename, 1, 'A2..A2');
+
+end
+
