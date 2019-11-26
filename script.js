@@ -1,6 +1,10 @@
 // Note. I am aware this is ugly code mainly because of a lack of separation between the logic and the UI.
 // The reason for this is because it had to been written is only a couple days (similar to a hackathon).
 
+const ORDERED_IMAGES = ['apple.png', 'coffee cup.png', 'coffee lid.jpg',
+    'coffee paper cup.jpeg', 'eggshells.jpg', 'elastic bands.jpg', 'milk.png',
+    "paper.png", 'pizza box.jpg', 'snickers.png', 'tea bag.jpg'];
+
 class Helper {
     static shuffle(array) {
         // From: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
@@ -84,11 +88,11 @@ class Game {
         this._experiment_data = []; // item format: delay to dispose garbage, item displayed, category disposed
         this._displayed_timestamp = null;
         this._add_delay = false;
-        this._bin_filename=null;
+        this._bin_filename = null;
         this.DELAY = 2000;
     }
 
-    load_bin_picture(){
+    load_bin_picture() {
         switch (case_choice) {
             case "control":
             case "delay":
@@ -181,7 +185,8 @@ class Game {
     }
 }
 
-const IMAGES = Helper.shuffle(['apple.png', 'coffee cup.png', 'milk.png', 'paper.png', 'snickers.png']); // TODO: Scan res/items instead of hard coding file names
+
+const IMAGES = Helper.shuffle(ORDERED_IMAGES); // TODO: Scan res/items instead of hard coding file names
 const NUMBER_OF_ITEMS = IMAGES.length;
 
 const COFFEE = "coffee";
