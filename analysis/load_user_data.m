@@ -10,7 +10,7 @@ fclose(fileID);
 
 
 data.timestamp = str2double(header(1));
-data.category = char(header(2));
+data.bin_file = char(header(2));
 
 if strcmp(char(header(3)), 'true')
     data.delay = true;
