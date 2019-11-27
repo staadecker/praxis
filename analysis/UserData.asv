@@ -34,16 +34,7 @@ classdef UserData
             r = mean(table2array(obj.data(is_category, 1)));
         end
         
-        function r = get_contamination_rate(obj)
-            is_wrong = 0;
-            for i = 1:height(obj.data)
-                if ~strcmp(get_correct_bin(char(obj.data{i, 2})), char(obj.data{i, 3}))
-                    is_wrong = is_wrong + 1;
-                end
-            end
-            
-            r = is_wrong / height(obj.data) * 100;
-        end
+        function r = get_
     end
 end
 

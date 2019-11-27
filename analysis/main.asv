@@ -29,13 +29,13 @@ close
 % subplot(3,2,1)
 %plot_categories(data, categories);
 % subplot(3,2,2)
-% plot_average_time_per_item(data, categories);
+plot_average_time_per_item(data, categories);
 % subplot(3,2,3)
-%plot_time_per_case(split_data, categories)
+% plot_time_per_case(split_data, categories)
 % subplot(3,2,4)
-%plot_reaction_time_per_slot(split_data, categories)
+% plot_reaction_time_per_slot(split_data, categories)
 % subplot(3,2,5)
-plot_contamination_rate(split_data, categories)
+% plot_contamination_rate(split_data, categories)
 
 function plot_average_time_per_item(split_data, categories)
 sample_cat = split_data(1) ;
