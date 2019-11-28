@@ -26,16 +26,16 @@ split_data = sort_data_by_case(data);
 %% Plot
 close
 
-% subplot(3,2,1)
-%plot_categories(data, categories);
-% subplot(3,2,2)
+%subplot(3,2,1)
+plot_categories(data, categories);
+%subplot(3,2,2)
 plot_average_time_per_item(data, categories);
-% subplot(3,2,3)
-% plot_time_per_case(split_data, categories)
-% subplot(3,2,4)
-% plot_reaction_time_per_slot(split_data, categories)
-% subplot(3,2,5)
-% plot_contamination_rate(split_data, categories)
+%subplot(3,2,3)
+plot_time_per_case(split_data, categories)
+%subplot(3,2,4)
+plot_reaction_time_per_slot(split_data, categories)
+%subplot(3,2,5)
+plot_contamination_rate(split_data, categories)
 
 function plot_average_time_per_item(split_data, categories)
 sample_cat = split_data(1) ;
@@ -109,6 +109,8 @@ ylabel("Number of participants")
 title("Participants in experiment (total=" + length(data) + ")")
 show_labels_on_bar_chart(b)
 
+saveas(gcf, 'results/reaction_time_per_slot.png')
+
 
 end
 
@@ -124,11 +126,13 @@ for case_type = 1:length(split_data)
     end
 end
 
-bar(binCategories, result)
+bar(binCategories, result);
 legend(cellstr(categories), 'Location', 'bestoutside')
 xlabel("Slot")
 ylabel("Reaction time (ms)")
 title("Reaction time for each slot")
+
+saveas(gcf, 'results/reaction_time_per_slot.png')
 
 end
 

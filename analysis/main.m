@@ -26,15 +26,15 @@ split_data = sort_data_by_case(data);
 %% Plot
 close
 
-% subplot(3,2,1)
-%plot_categories(data, categories);
-% subplot(3,2,2)
-% plot_average_time_per_item(data, categories);
-% subplot(3,2,3)
-%plot_time_per_case(split_data, categories)
-% subplot(3,2,4)
-%plot_reaction_time_per_slot(split_data, categories)
-% subplot(3,2,5)
+%subplot(3,2,1)
+plot_categories(data, categories);
+%subplot(3,2,2)
+plot_average_time_per_item(data, categories);
+%subplot(3,2,3)
+plot_time_per_case(split_data, categories)
+%subplot(3,2,4)
+plot_reaction_time_per_slot(split_data, categories)
+%subplot(3,2,5)
 plot_contamination_rate(split_data, categories)
 
 function plot_average_time_per_item(split_data, categories)
@@ -52,6 +52,9 @@ xlabel("Item number")
 ylabel("Reaction time (ms)")
 legend(cellstr(categories))
 title("Reaction time as trial progresses")
+
+saveas(gcf, 'results/reaction_time_per_item.png')
+
 end
 
 function plot_contamination_rate(split_data, categories)
@@ -65,6 +68,9 @@ b=bar(categories, time);
 show_labels_on_bar_chart(b)
 ylabel("Contamination rate (%)")
 title("Contamination rate for each test case")
+
+saveas(gcf, 'results/contamination_rate.png')
+
 end
 
 function plot_time_per_case(split_data, categories)
@@ -80,6 +86,9 @@ b=bar(categories, time);
 show_labels_on_bar_chart(b)
 ylabel("Change in Reaction Time (ms)")
 title("Change in reaction time for each test case")
+
+saveas(gcf, 'results/reaction_time.png')
+
 end
 
 function plot_categories(data, categories)
@@ -109,6 +118,8 @@ ylabel("Number of participants")
 title("Participants in experiment (total=" + length(data) + ")")
 show_labels_on_bar_chart(b)
 
+saveas(gcf, fullfile("results/respondents.png"))
+
 
 end
 
@@ -120,15 +131,17 @@ binCategories = categorical({'garbage', 'coffee', 'paper', 'container'});
 
 for case_type = 1:length(split_data)
     for i = 1:4
-    result(case_type, i) = mean(rmmissing(arrayfun(@(trial) trial.average_time_for_category(char(binCategories(i))), split_data{case_type})));
+        result(case_type, i) = mean(rmmissing(arrayfun(@(trial) trial.average_time_for_category(char(binCategories(i))), split_data{case_type})));
     end
 end
 
-bar(binCategories, result)
+bar(binCategories, result);
 legend(cellstr(categories), 'Location', 'bestoutside')
 xlabel("Slot")
 ylabel("Reaction time (ms)")
 title("Reaction time for each slot")
+
+saveas(gcf, 'results/reaction_time_per_slot.png')
 
 end
 
