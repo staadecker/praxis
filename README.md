@@ -11,7 +11,7 @@ The website is a minimal Javascript/HTML page that uploads the users' experiment
 
 173 responses were recorded as of November 27th 2019. 156 responses were valid (did not exceed more than 15s per item).
 
-The most significant result was that our improved labelling decreased contamination rate——the amount of wrongly placed items——by 11% compared to the current bins. See the graph below.
+The most significant result was that our improved labelling decreased contamination rate—the amount of wrongly placed items—by 11% compared to the current bins. See the graph below.
 
 ![contamination_rate_data](/analysis/results/contamination_rate.png)
 
