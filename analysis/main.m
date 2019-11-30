@@ -7,8 +7,8 @@ clear
 PATH = "C:\Users\machs\Documents\praxis_data\praxis-i-research.appspot.com\user\";
 CUT_OFF_TIME = 15000;
 
-categories = categorical({'Control bins', 'New labels', 'Control bins with delay', 'New slot shapes'});
-categories = reordercats(categories, {'Control bins', 'New labels', 'Control bins with delay', 'New slot shapes'});
+categories = categorical({'Control', 'Improved Labelling', 'Bin Delay', 'Improved Slot Size'});
+categories = reordercats(categories, {'Control', 'Improved Labelling', 'Bin Delay', 'Improved Slot Size'});
 
 
 data = get_users_data(PATH);
