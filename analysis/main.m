@@ -146,7 +146,5 @@ saveas(gcf, 'results/reaction_time_per_slot.png')
 end
 
 function show_labels_on_bar_chart(b)
-for i = 1:length(b)
-    text(1:length(b(i).YData),b(i).YData,num2str(round(b(i).YData')),'vert','bottom','horiz','center');
-end
+text(1:length(b.YData),b.YData,num2str(round(b.YData')),'vert','bottom','horiz','center');
 end
