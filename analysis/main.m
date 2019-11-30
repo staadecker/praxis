@@ -66,10 +66,10 @@ end
 
 b=bar(categories, time);
 show_labels_on_bar_chart(b)
-ylabel("Contamination rate (%)")
-title("Contamination rate for each test case")
+ylabel("Occurence of mistakes (%)")
+title("Occurence of mistakes for each test case")
 
-saveas(gcf, 'results/contamination_rate.png')
+saveas(gcf, 'results/occurence_of_mistakes.png')
 
 end
 
