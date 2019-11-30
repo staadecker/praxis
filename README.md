@@ -19,7 +19,7 @@ The most significant result was that our improved labelling decreased contaminat
 
 Due to the very short time frame given to implement this project the following occured.
 - The code is messy (especially the MatLab code).
-- There is no seperation between development and production code making it hard to edit after the launch.
+- In the website, there is no seperation between development and production code making it hard to make significant changes to the code after its launch.
 
 ## Notes for myself
 
