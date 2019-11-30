@@ -5,7 +5,7 @@ As part of ESC101 (Praxis I) at the University of Toronto, our team had to reduc
 Try out the simulation [here](https://staadecker.github.io/praxis/).
 
 ## Implementation details
-The website is a minimal Javascript/HTML page that uploads the users' experiment data to Google's Firebase Storage service. I then download all the data and analyse it with MatLab.
+The website is a minimal Javascript/HTML page that uploads the users' experiment data to Google's Firebase Storage service. I then downloaded the data and analysed it with MatLab.
 
 ## Results
 
